@@ -4,10 +4,10 @@ Python Username Generator - for all your random username needs!
 
 pungen is a simple to use Python script which generates "usernames" on demand.
 The usernames are created on the spot using some pre-defined word-creating formulas.
-I'm making this seem way fancier than it is.
+Don't worry. It's way less complicated than I'm making it sound.
 
 
-###Usage
+### Usage
 
 The format for generating usernames from command line is:
 
