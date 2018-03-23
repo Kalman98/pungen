@@ -48,7 +48,7 @@ class UsernameGenerator:
             for j in range(length):
                 if not is_double:  # if the last character was a double, skip a letter
                     # 1 in 8 chance of doubling if username is still short enough
-                    if random.randrange(8) == 0 and len(username) < int(length) - 1:
+                    if random.randrange(12) == 0 and len(username) < int(length) - 1:
                         is_double = True  # this character will be doubled
                     if is_consonant:
                         username += self.add_consonant(is_double)  # add consonant to username
