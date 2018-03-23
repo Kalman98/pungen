@@ -43,12 +43,15 @@ class UsernameGenerator:
         # begin generating usernames
         for i in range(10):
             username, is_double, num_length = "", False, 0  # reset variables
+
+            if is_ranged:  # pick a random length for this username, given the ranges
+                length = random.randrange(min_length, max_length)
+
             if random.randrange(5) == 0:  # decide if there will be numbers after the name
                 num_length = random.randrange(3) + 1
                 if length - num_length < 2:  # we don't want the username to be too short
                     num_length = 0
-            if is_ranged:
-                length = random.randrange(min_length, max_length)
+
             for j in range(length - num_length):  # we leave room for the numbers after the name here
                 if not is_double:  # if the last character was a double, skip a letter
                     # 1 in 8 chance of doubling if username is still short enough
