@@ -9,7 +9,7 @@ class UsernameGenerator:
         min_length, max_length = 0, 0  # quells PyCharm "might be referenced before assignment" warnings
         try:
             max_length = int(sys.argv[2])  # max_length equals the first argument
-        except IndexError:
+        except IndexError:  # if there is no second variable, flag length as a fixed number
             is_ranged = False
         else:
             is_ranged = True  # the length of usernames is ranged
@@ -20,9 +20,6 @@ class UsernameGenerator:
                       "    pungen <username_length>\n"
                       "    pungen <username_length_min> <username_length_max>\n"
                       "Note: It is recommended to keep lengths under 20 for more realistic names.")
-                sys.exit()
-            if 2 > int(sys.argv[1]) > 20:  # if the given length is outside the 2 - 20 character range
-                print("Please input a number greater than 2 and less than 20.")
                 sys.exit()
             if is_ranged:
                 min_length = int(sys.argv[1])  # min_length equals the first argument
@@ -50,7 +47,7 @@ class UsernameGenerator:
                 length = random.randrange(min_length, max_length)
             for j in range(length):
                 if not is_double:  # if the last character was a double, skip a letter
-                    # 1 in 8 chance if username is shorter than the length
+                    # 1 in 8 chance of doubling if username is still short enough
                     if random.randrange(8) == 0 and len(username) < int(length) - 1:
                         is_double = True  # this character will be doubled
                     if is_consonant:
