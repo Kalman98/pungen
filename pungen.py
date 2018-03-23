@@ -6,7 +6,7 @@ import string
 class UsernameGenerator:
     def __init__(self):
         # command feedback for various arguments
-
+        min_length, max_length = 0, 0  # quells PyCharm "might be referenced before assignment" warnings
         try:
             max_length = int(sys.argv[2])  # max_length equals the first argument
         except IndexError:
