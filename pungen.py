@@ -19,7 +19,7 @@ class UsernameGenerator:
                 print("Usage: \n"  # print the usage instructions
                       "    pungen <username_length>\n"
                       "    pungen <username_length_min> <username_length_max>\n"
-                      "Note: It is recommended to keep lengths under 20 for more realistic names.")
+                      "Note: It is recommended to keep lengths under 20 for more realistic user names.")
                 sys.exit()
             if is_ranged:
                 min_length = int(sys.argv[1])  # min_length equals the first argument
