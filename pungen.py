@@ -16,7 +16,10 @@ class UsernameGenerator:
 
         try:
             if sys.argv[1] == "help":  # if the first argument is "help"
-                print("Usage: \n    pungen <username_length>\n    pungen <username_length_min> <username_length_max>")  # print the usage instructions
+                print("Usage: \n"  # print the usage instructions
+                      "    pungen <username_length>\n"
+                      "    pungen <username_length_min> <username_length_max>\n"
+                      "Note: It is recommended to keep lengths under 20 for more realistic names.")
                 sys.exit()
             if 2 > int(sys.argv[1]) > 20:  # if the given length is outside the 2 - 20 character range
                 print("Please input a number greater than 2 and less than 20.")
@@ -30,7 +33,9 @@ class UsernameGenerator:
             length = 7  # set length to default of 7
 
         # initialize tuples
-        self.consonants = ('b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z')
+        self.consonants = ('b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n',
+                           'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z')
+
         self.vowels = ('a', 'e', 'i', 'o', 'u')
 
         # decide if the first letter is a consonant
@@ -45,7 +50,8 @@ class UsernameGenerator:
                 length = random.randrange(min_length, max_length)
             for j in range(length):
                 if not is_double:  # if the last character was a double, skip a letter
-                    if random.randrange(8) == 0 and len(username) < int(length) - 1:  # 1 in 8 chance if username is shorter than the length
+                    # 1 in 8 chance if username is shorter than the length
+                    if random.randrange(8) == 0 and len(username) < int(length) - 1:
                         is_double = True  # this character will be doubled
                     if is_consonant:
                         username += self.add_consonant(is_double)  # add consonant to username
