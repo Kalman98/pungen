@@ -16,7 +16,7 @@ class UsernameGenerator:
 
         try:
             if sys.argv[1] == "help":  # if the first argument is "help"
-                print("Usage: \n    ugen <username_length>\n    ugen <username_length_min> <username_length_max>")  # print the usage instructions
+                print("Usage: \n    pungen <username_length>\n    pungen <username_length_min> <username_length_max>")  # print the usage instructions
                 sys.exit()
             if 2 > int(sys.argv[1]) > 20:  # if the given length is outside the 2 - 20 character range
                 print("Please input a number greater than 2 and less than 20.")
