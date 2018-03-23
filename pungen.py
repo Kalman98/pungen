@@ -42,13 +42,17 @@ class UsernameGenerator:
             is_consonant = False
         # begin generating usernames
         for i in range(10):
-            username, is_double = "", False  # reset variables
+            username, is_double, num_length = "", False, 0  # reset variables
+            if random.randrange(5) == 0:  # decide if there will be numbers after the name
+                num_length = random.randrange(3) + 1
+                if length - num_length < 2:  # we don't want the username to be too short
+                    num_length = 0
             if is_ranged:
                 length = random.randrange(min_length, max_length)
-            for j in range(length):
+            for j in range(length - num_length):  # we leave room for the numbers after the name here
                 if not is_double:  # if the last character was a double, skip a letter
                     # 1 in 8 chance of doubling if username is still short enough
-                    if random.randrange(12) == 0 and len(username) < int(length) - 1:
+                    if random.randrange(12) == 0 and len(username) < int(length - num_length) - 1:
                         is_double = True  # this character will be doubled
                     if is_consonant:
                         username += self.add_consonant(is_double)  # add consonant to username
@@ -59,9 +63,9 @@ class UsernameGenerator:
                     is_double = False  # reset double status so the next letter won't be skipped
             if random.randrange(2) == 0:
                 username = string.capwords(username)  # capitalize the first letter
-            if random.randrange(5) == 0:
-                for j in range(random.randrange(3) + 1):  # loop 1 - 3 times
-                    username += str(random.randrange(10))  # append a random number, 1 - 9
+            if num_length > 0:
+                for j in range(num_length):  # loop 1 - 3 times
+                    username += str(random.randrange(10))  # append a random number, 0 - 9
             print(username)
 
     def add_consonant(self, is_double):
