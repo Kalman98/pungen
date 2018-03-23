@@ -17,8 +17,8 @@ This will generate ten usernames of the specified length. You can specify a rang
 
 `pungen <min_username_length> <max_username_length>`
 
-Note that a random number 1 - 3 digits long will be appended to the end of some usernames, ignoring the length value.
-The text in the username will always be within the lengths specified.
+The usernames will always be within the lengths specified.
+
 
 I really just wrote this for fun, if you can come up with something to do with it, by all means, use it.
 That should be all you need to know. Oh, it's for Python 3.
